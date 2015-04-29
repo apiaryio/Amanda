@@ -55,6 +55,7 @@ suite('JSON/Attribute/type#number', function() {
       true,
       {},
       [],
+      NaN,
       function() {}
     ].forEach(function(instance) {
       Validator.validate(instance, schema, function(error) {
@@ -64,8 +65,8 @@ suite('JSON/Attribute/type#number', function() {
     });
   });
 
-  test('should run 21 times', function() {
-    expect(count).to.be.eql(21);
+  test('should run 22 times', function() {
+    expect(count).to.be.eql(22);
   });
 
 });
