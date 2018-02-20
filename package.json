@@ -1,7 +1,7 @@
 {
   "name": "amanda",
   "description": "JSON Schema validator",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "author": "František Hába <frantisek@apiary.io> (https://github.com/Baggz)",
   "contributors": [
     {
@@ -35,7 +35,7 @@
   },
   "main": "./releases/latest/amanda.js",
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">= 6.0.0"
   },
   "bugs": {
     "url": "https://github.com/apiaryio/Amanda/issues",
