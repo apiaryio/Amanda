@@ -41,14 +41,10 @@
     "url": "https://github.com/apiaryio/Amanda/issues",
     "email": "hello@frantisekhaba.com"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/apiaryio/Amanda/blob/master/README.md"
-    }
-  ],
+  "license": "MIT",
   "scripts": {
     "test": "mocha --ui tdd --reporter spec ./tests/json/attributes/required/*.js ./tests/json/attributes/format/*.js ./tests/json/attributes/type/*.js ./tests/json/attributes/*.js ./tests/json/*.js"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }
