@@ -27,7 +27,8 @@ suite('JSON/Attribute/format#url', function() {
   var Validator = amanda('json');
 
   test('should not return an error', function() {
-
+    // test have length 6393ms
+    this.timeout(15000);
     domains.forEach(function(domain) {
       domainNames.forEach(function(name) {
 
@@ -45,7 +46,6 @@ suite('JSON/Attribute/format#url', function() {
 
       });
     });
-
   });
 
   test('should return an error', function() {
