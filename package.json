@@ -1,23 +1,22 @@
 {
-
   "name": "amanda",
   "description": "JSON Schema validator",
   "version": "0.5.1",
   "author": "František Hába <frantisek@apiary.io> (https://github.com/Baggz)",
   "contributors": [
     {
-        "name": "Peter Grilli",
-        "email": "tully@apiary.io"
+      "name": "Peter Grilli",
+      "email": "tully@apiary.io"
     }
   ],
   "devDependencies": {
-    "mocha": "1.12.0",
-    "expect.js": "0.2.0",
-    "debug": "0.7.2",
     "async": "0.2.9",
-    "uglify-js": "2.3.6"
+    "debug": "^2.6.9",
+    "expect.js": "0.2.0",
+    "mocha": "^4.0.0",
+    "safe-regex": "^1.1.0",
+    "uglify-js": "^2.6.0"
   },
-
   "keywords": [
     "JSON",
     "JSON Schema",
@@ -29,34 +28,27 @@
     "async",
     "browser"
   ],
-
   "homepage": "https://github.com/apiaryio/Amanda",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/apiaryio/Amanda.git"
   },
-
   "main": "./releases/latest/amanda.js",
-
   "engines": {
     "node": ">= 0.6.0"
   },
-
   "bugs": {
     "url": "https://github.com/apiaryio/Amanda/issues",
     "email": "hello@frantisekhaba.com"
   },
-
   "licenses": [
     {
       "type": "MIT",
       "url": "https://github.com/apiaryio/Amanda/blob/master/README.md"
     }
   ],
-
   "scripts": {
-    "test" : "mocha --ui tdd --reporter spec ./tests/json/attributes/required/*.js ./tests/json/attributes/format/*.js ./tests/json/attributes/type/*.js ./tests/json/attributes/*.js ./tests/json/*.js"
-  }
-
+    "test": "mocha --ui tdd --reporter spec ./tests/json/attributes/required/*.js ./tests/json/attributes/format/*.js ./tests/json/attributes/type/*.js ./tests/json/attributes/*.js ./tests/json/*.js"
+  },
+  "dependencies": {}
 }
