@@ -50,6 +50,8 @@ suite('JSON/Attribute/format#url', function() {
 
   test('should return an error', function() {
     [
+      '',
+      '  ',
       'google.a',
       'google.rog',
       'google://google',
@@ -70,7 +72,7 @@ suite('JSON/Attribute/format#url', function() {
   });
 
   test('should run 18911 times', function() {
-    expect(count).to.be.eql(18911);
+    expect(count).to.be.eql(18913);
   });
 
 });
