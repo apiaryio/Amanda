@@ -18,7 +18,14 @@ var additionalPropertiesAttribute = function additionalProperties(property, prop
   // Filter the forbidden properties
   var propertyKeys = keys(propertyValue);
   var forbiddenProperties = filter(propertyKeys, function(key) {
-    return !propertyAttributes.properties[key];
+    if (propertyAttributes.properties) {
+      return !propertyAttributes.properties[key];
+    }
+    // Allow pattern properties to be used without additional properties
+    return !Object.keys(propertyAttributes.patternProperties).some(function(pattern) {
+      var matcher = new RegExp(pattern);
+      return matcher.test(key);
+    });
   });
 
   if (isEmpty(forbiddenProperties)) {

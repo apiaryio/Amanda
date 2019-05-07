@@ -164,4 +164,101 @@ suite('JSON/Attribute/additionalProperties', function() {
 
   });
 
+  test('false with pattern', function() {
+
+    var count = 0;
+
+    /**
+     * Schema
+     */
+    var schema = {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]+$": {
+          "type": "array",
+          "minItems": 1,
+          "required": true,
+          "items":{
+            "type":"string"
+          }
+        }
+      },
+      "additionalProperties": false
+    };
+
+    jsonSchemaValidator.validate({
+      "foo": ["bar", "beep", "boop"], "beep": ["boop"]
+    }, schema, function(error) {
+      console.log('1', error);
+      count += 1;
+      expect(error).to.not.be.ok();
+    });
+
+    jsonSchemaValidator.validate({
+      "Foo": ["Bar", "beep", "boop"], "beep": ["boop"]
+    }, schema, function(error) {
+      console.log('2', error);
+      count += 1;
+      expect(error).to.be.ok();
+    });
+
+    jsonSchemaValidator.validate({
+      "foo": ["Bar", "beep", 1234], "beep": ["boop"]
+    }, schema, function(error) {
+      console.log('2', error);
+      count += 1;
+      expect(error).to.be.ok();
+    });
+
+    expect(count).to.be.eql(3);
+  });
+
+  test('true with pattern', function() {
+
+    var count = 0;
+
+    /**
+     * Schema
+     */
+    var schema = {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]+$": {
+          "type": "array",
+          "required": true,
+          "items":{
+            "type":"string"
+          }
+        }
+      },
+      "additionalProperties": true
+    };
+
+    jsonSchemaValidator.validate({
+      "foo": ["bar", "beep", "boop"], "beep": ["boop"]
+    }, schema, function(error) {
+      console.log('1', error);
+      count += 1;
+      expect(error).to.not.be.ok();
+    });
+
+    jsonSchemaValidator.validate({
+      "Foo": ["Bar", "beep", "boop"], "beep": ["boop"]
+    }, schema, function(error) {
+      console.log('2', error);
+      count += 1;
+      expect(error).to.not.be.ok();
+    });
+
+    jsonSchemaValidator.validate({
+      "foo": ["Bar", "beep", 1234], "beep": ["boop"]
+    }, schema, function(error) {
+      console.log('2', error);
+      count += 1;
+      expect(error).to.be.ok();
+    });
+
+    expect(count).to.be.eql(3);
+  });
+
 });
